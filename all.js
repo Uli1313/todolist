@@ -1,7 +1,7 @@
 const txt = document.querySelector(".txt");
 const save = document.querySelector(".save");
 const list = document.querySelector(".list");
-const _url = "https://todolist-20of.onrender.com"; // 修改處
+const _url = "https://todolist-20of.onrender.com/"; // 修改處
 let data = [];
 function init() {
   axios.get(`${_url}/todos`).then(function (response) {
