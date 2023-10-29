@@ -4,7 +4,7 @@ const list = document.querySelector(".list");
 const _url = "https://todolist-20of.onrender.com"; // 修改處
 let data = [];
 function init() {
-  axios.get(`${_url}/todos`).then(function (response) {
+  axios.get(`${_url}todos`).then(function (response) {
     data = response.data;
     console.log(data);
     renderData();
@@ -28,7 +28,7 @@ save.addEventListener("click", function (e) {
   }
   let obj = {};
   obj.content = txt.value;
-  axios.post(`${_url}/todos`, obj).then(function (res) {
+  axios.post(`${_url}todos`, obj).then(function (res) {
     init();
   });
 });
@@ -40,7 +40,7 @@ list.addEventListener("click", function (e) {
     return;
   }
   let num = e.target.getAttribute("data-num");
-  axios.delete(`${_url}/todos/${num}`).then(function (res) {
+  axios.delete(`${_url}todos/${num}`).then(function (res) {
     alert("刪除成功！");
     init();
   });
