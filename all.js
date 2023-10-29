@@ -4,11 +4,13 @@ const list = document.querySelector(".list");
 const _url = "https://todolist-20of.onrender.com/"; // 修改處
 let data = [];
 function init() {
-  axios.get(`${_url}/todos`).then(function (response) {
-    data = response.data;
-    console.log(data);
-    renderData();
-  });
+  axios
+    .get(`https://todolist-20of.onrender.com/todos`)
+    .then(function (response) {
+      data = response.data;
+      console.log(data);
+      renderData();
+    });
 }
 // 預設載入初始化環境
 init();
@@ -28,9 +30,11 @@ save.addEventListener("click", function (e) {
   }
   let obj = {};
   obj.content = txt.value;
-  axios.post(`${_url}/todos`, obj).then(function (res) {
-    init();
-  });
+  axios
+    .post(`https://todolist-20of.onrender.com/todos`, obj)
+    .then(function (res) {
+      init();
+    });
 });
 // 刪除待辦功能
 list.addEventListener("click", function (e) {
@@ -40,8 +44,10 @@ list.addEventListener("click", function (e) {
     return;
   }
   let num = e.target.getAttribute("data-num");
-  axios.delete(`${_url}/todos/${num}`).then(function (res) {
-    alert("刪除成功！");
-    init();
-  });
+  axios
+    .delete(`https://todolist-20of.onrender.com/todos/${num}`)
+    .then(function (res) {
+      alert("刪除成功！");
+      init();
+    });
 });
